@@ -1,4 +1,5 @@
 const express=require("express");
+const cors=require("cors");
 const app=express();
 const mongoose=require("mongoose");
 const dotenv=require("dotenv");
@@ -16,6 +17,11 @@ async function main() {
   console.log("Database connection successful");
 }
 
+app.use(cors());
+
+const allowedOrigins = ['https://bestflix-h3vn.onrender.com'];
+
+app.use(cors({ origin: allowedOrigins }));
 
 app.use(express.json());
 app.use("/api/auth",authRoute);
