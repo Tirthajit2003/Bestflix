@@ -29,6 +29,6 @@ app.use("/api/users",userRoute);
 app.use("/api/movies",movieRoute);
 app.use("/api/lists",listRoute);
 
-app.listen(3000,()=>{
-    console.log("Server running on port 3000");
+app.listen(4000,()=>{
+    console.log("Server running on port 4000");
 });
