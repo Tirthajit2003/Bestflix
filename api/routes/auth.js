@@ -34,6 +34,8 @@ router.post("/login",async (req,res)=>{
 
         const {password, ...info}=user._doc;
 
+        console.log("Used find");
+
         res.status(200).json({...info,accessToken});
     } catch (error) {
         console.log(error);

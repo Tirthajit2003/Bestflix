@@ -30,6 +30,9 @@ export default function Register() {
       console.log(err);
     }
   };
+  const handleSign= ()=>{
+    history("/login");
+  }
   return (
     <div className="register">
       <Helmet>
@@ -43,7 +46,8 @@ export default function Register() {
               alt=""
             />
             
-            <button className="loginButton">Sign In</button>
+            {/* <button className="loginButton" onClick={()=>handleSign()}>Sign In</button> */}
+            
           </div>
         </div>
         <div className="container">
@@ -57,6 +61,9 @@ export default function Register() {
               <input type="email" placeholder="email address" ref={emailRef} />
               <button className="registerButton" onClick={handleStart}>
                 Get Started
+              </button>
+              <button className="registerButton" onClick={handleSign}>
+                Sign In
               </button>
             </div>
           ) : (
