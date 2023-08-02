@@ -16,12 +16,20 @@ async function main() {
   await mongoose.connect(process.env.MONGO_URL);
   console.log("Database connection successful");
 }
-
-app.use(cors());
-
 const allowedOrigins = ['https://bestflix-h3vn.onrender.com'];
 
-app.use(cors({ origin: allowedOrigins }));
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use("/api/auth",authRoute);
