@@ -18,11 +18,12 @@ export default function Watch() {
   const { id } = useParams();
   console.log(id);
   const [movie, setMovie] = useState({});
+  const axiosInstance=axios.create({baseURL:process.enc.REACT_APP_API_URL,});
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(`https://bestflix-api.vercel.app/movies/find/${id}`, {
+        const res = await axiosInstance.get(`/movies/find/${id}`, {
           headers: {
             token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
