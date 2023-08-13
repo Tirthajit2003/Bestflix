@@ -10,6 +10,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  axios.defaults.withCredentials=true;
   const history = useNavigate();
 
   const emailRef = useRef();
@@ -24,7 +25,7 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("/auth/register", { email,username, password });
+      await axios.post("https://bestflix-api.vercel.app/auth/register", { email,username, password });
       history("/login");
     } catch (err) {
       console.log(err);
