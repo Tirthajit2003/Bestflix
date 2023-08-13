@@ -16,12 +16,7 @@ async function main() {
   await mongoose.connect(process.env.MONGO_URL);
   console.log("Database connection successful");
 }
-app.use(cors(
-  {
-    origin: "https://bestflix-frontend.vercel.app",
-    credentials: true
-  }
-));
+app.use(cors());
 
 
 app.use(express.json());
