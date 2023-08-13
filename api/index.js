@@ -20,7 +20,6 @@ app.use(cors(
   {
     origin: "https://bestflix-frontend.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Custom-Header"],
     credentials: true
   }
 ));
