@@ -16,7 +16,7 @@ export default function Listitem({ index, item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get(`/movies/find/${item}` , {
+        const res = await axios.get(`https://bestflix-api.vercel.app/movies/find/${item}` , {
           headers: {
             token:
             "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
