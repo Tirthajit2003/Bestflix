@@ -5,7 +5,7 @@ export const login = async (user, dispatch) => {
   dispatch(loginStart());
   axios.defaults.withCredentials=true;
   try {
-    const res = await axios.post("https://bestflix-api.vercel.app/api/auth/login", user);
+    const res = await axios.post("https://bestflix-api.vercel.app/auth/login", user);
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
