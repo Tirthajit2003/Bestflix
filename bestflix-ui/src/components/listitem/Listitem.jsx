@@ -12,11 +12,13 @@ import { Link } from "react-router-dom";
 export default function Listitem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
+  const axiosInstance=axios.create({
+    baseURL:process.env.REACT_APP_API_URL,});
 
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get(`https://bestflix-api.vercel.app/movies/find/${item}` , {
+        const res = await axiosInstance.get(`/movies/find/${item}` , {
           headers: {
             token:
             "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
