@@ -18,7 +18,7 @@ async function main() {
 }
 app.use(cors(
   {
-    origin:[""],
+    origin:["https://bestflix-frontend.vercel.app"],
     methods:["POST","GET"],
     credentials: true
   }
