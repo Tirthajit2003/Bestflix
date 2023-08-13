@@ -18,7 +18,7 @@ async function main() {
 }
 app.use(cors(
   {
-    origin:["https://bestflix-h3vn.onrender.com"],
+    origin:[""],
     methods:["POST","GET"],
     credentials: true
   }
