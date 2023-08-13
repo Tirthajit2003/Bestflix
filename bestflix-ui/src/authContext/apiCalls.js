@@ -1,11 +1,13 @@
 import axios from "axios";
 import { loginFailure, loginStart, loginSuccess } from "./AuthActions";
 
+const axiosInstance=axios.create({
+    baseURL:process.env.REACT_APP_API_URL,});
+
 export const login = async (user, dispatch) => {
   dispatch(loginStart());
-  axios.defaults.withCredentials=true;
   try {
-    const res = await axios.post("https://bestflix-api.vercel.app/auth/login", user);
+    const res = await axiosInstance.post("auth/login", user);
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
